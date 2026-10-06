@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-title">Popups</div>
+<div class="card center">
+  <button class="btn primary" onclick="openModal()">Open Popup</button>
+</div>
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h2>Popup</h2>
+    <p>This popup demonstrates modal interaction.</p>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-title">Autocomplete</div>
+<div class="card">
+  <label>Tags</label>
+  <input id="tagInput" list="tagList" placeholder="Start typing a technology...">
+  <datalist id="tagList">
+    {% for tag in tags %}<option value="{{ tag }}">{% endfor %}
+  </datalist>
+  <p id="tagResult" class="hint">Choose a value.</p>
+  <button class="btn primary" onclick="document.getElementById('tagResult').innerText='Selected: '+document.getElementById('tagInput').value">Use Tag</button>
+</div>
+{% endblock %}

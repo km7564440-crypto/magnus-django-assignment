@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-title">Collapsible Content</div>
+<div class="card">
+  <button class="collapse-btn" onclick="toggleCollapse('c1')">Know your goals and prioritize wisely <span>+</span></button>
+  <div id="c1" class="collapse-content">Set a clear goal and divide it into small tasks.</div>
+  <button class="collapse-btn" onclick="toggleCollapse('c2')">Be focused and eliminate distractions <span>+</span></button>
+  <div id="c2" class="collapse-content">Work on one important task at a time.</div>
+  <button class="collapse-btn" onclick="toggleCollapse('c3')">Choose the right mentor <span>+</span></button>
+  <div id="c3" class="collapse-content">Learn from reliable sources and experienced developers.</div>
+</div>
+{% endblock %}

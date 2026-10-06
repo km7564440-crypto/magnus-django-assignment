@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-title">Menu</div>
+<div class="card">
+  <div class="demo-menu">
+    <button onclick="toggleGroup('demoSub')">Sub Menu ▾</button>
+    <div id="demoSub" class="demo-submenu">
+      <a href="#">Testing</a><a href="#">Java</a><a href="#">.Net</a><a href="#">Database</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

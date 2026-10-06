@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-title">Slider</div>
+<div class="card center">
+  <input type="range" id="range" min="0" max="100" value="55" oninput="document.getElementById('rangeValue').innerText=this.value">
+  <p>Current Slider Value: <b id="rangeValue">55</b></p>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-title">{{ title }}</div>
+<div class="card form-card">
+  <h2>Employee Details</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    {% for field in form %}
+      <div class="field">
+        {% if field.name == "skills" %}
+          <label>{{ field.label }}</label>
+          <div class="checkbox-grid">{{ field }}</div>
+        {% elif field.name == "gender" %}
+          <label>{{ field.label }}</label>
+          <div>{{ field }}</div>
+        {% elif field.name == "other_city" %}
+          <label class="check-row">{{ field }} {{ field.label }}</label>
+        {% else %}
+          <label>{{ field.label }}</label>
+          {{ field }}
+        {% endif %}
+        {% for error in field.errors %}<div class="error">{{ error }}</div>{% endfor %}
+      </div>
+    {% endfor %}
+    <div class="actions">
+      <button class="btn success" type="submit">{{ button }}</button>
+      <a class="btn danger" href="{% url 'employee_list' %}">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

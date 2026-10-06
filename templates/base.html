@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Magnus - JALA Academy Clone</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<header class="topbar">
+  <button class="hamburger" onclick="toggleSidebar()">☰</button>
+  <a class="brand" href="{% url 'dashboard' %}">Magnus</a>
+  <div class="top-actions">
+    {% if request.user.is_authenticated %}
+      <span>{{ request.user.username }}</span>
+      <form method="post" action="{% url 'logout' %}" class="inline-form">
+        {% csrf_token %}<button class="logout-btn" type="submit">⇥</button>
+      </form>
+    {% endif %}
+  </div>
+</header>
+
+<div class="layout">
+<aside id="sidebar" class="sidebar">
+  <div class="profile">
+    <div class="avatar">👤</div>
+    <div><b>{{ request.user.username|default:"Guest User" }}</b><small>User</small></div>
+  </div>
+
+  <a href="{% url 'dashboard' %}" class="nav-item">🏠 Home</a>
+
+  <div class="nav-group">
+    <button class="nav-item nav-toggle" onclick="toggleGroup('employeeGroup')">👥 Employee <span>⌄</span></button>
+    <div id="employeeGroup" class="submenu">
+      <a href="{% url 'employee_create' %}">✎ Create</a>
+      <a href="{% url 'employee_list' %}">⌕ Search</a>
+    </div>
+  </div>
+
+  <div class="nav-group">
+    <button class="nav-item nav-toggle" onclick="toggleGroup('moreGroup')">▦ More <span>⌄</span></button>
+    <div id="moreGroup" class="submenu">
+      <a href="{% url 'multiple_tabs' %}">Multiple Tabs</a>
+      <a href="{% url 'menu_demo' %}">Menu</a>
+      <a href="{% url 'autocomplete' %}">Autocomplete</a>
+      <a href="{% url 'collapsible' %}">Collapsible Content</a>
+      <a href="{% url 'images' %}">Images</a>
+      <a href="{% url 'slider' %}">Slider</a>
+      <a href="{% url 'tooltips' %}">Tooltips</a>
+      <a href="{% url 'popups' %}">Popups</a>
+      <a href="{% url 'links' %}">Links</a>
+      <a href="{% url 'css_properties' %}">CSS Properties</a>
+      <a href="{% url 'iframes' %}">iFrames</a>
+    </div>
+  </div>
+</aside>
+
+<main class="content">
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+  {% block content %}{% endblock %}
+</main>
+</div>
+<script src="{% static 'js/app.js' %}"></script>
+</body>
+</html>

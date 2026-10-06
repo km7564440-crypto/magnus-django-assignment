@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-title">Links</div>
+<div class="card">
+  <p><a href="https://www.google.com" target="_blank" rel="noopener">Open Google</a></p>
+  <p><a href="{% url 'employee_list' %}">Internal Employee Search</a></p>
+  <p><a href="{% url 'employee_create' %}">Create Employee</a></p>
+</div>
+{% endblock %}

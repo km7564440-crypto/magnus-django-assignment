@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-title">Multiple Tabs</div>
+<div class="card">
+  <div class="tabs">
+    <button onclick="showTab('t1')">Testing</button>
+    <button onclick="showTab('t2')">Java</button>
+    <button onclick="showTab('t3')">.Net</button>
+    <button onclick="showTab('t4')">Database</button>
+  </div>
+  <div id="t1" class="tab-panel">Testing: manual testing, automation and test scenarios.</div>
+  <div id="t2" class="tab-panel hidden">Java: OOP, JDBC, Spring and REST APIs.</div>
+  <div id="t3" class="tab-panel hidden">.Net: C#, ASP.NET and Web APIs.</div>
+  <div id="t4" class="tab-panel hidden">Database: SQL, joins, constraints and CRUD.</div>
+</div>
+{% endblock %}

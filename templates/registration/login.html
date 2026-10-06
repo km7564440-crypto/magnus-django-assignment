@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sign in - Magnus</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="login-page">
+<div class="login-card">
+  <h1>Magnus</h1>
+  <p>Sign in</p>
+  <form method="post">
+    {% csrf_token %}
+    {% if form.errors %}<div class="error">Invalid username or password.</div>{% endif %}
+    <label>Username</label>
+    {{ form.username }}
+    <label>Password</label>
+    {{ form.password }}
+    <label class="remember"><input type="checkbox"> Remember Me</label>
+    <button class="btn primary full" type="submit">Sign In</button>
+  </form>
+  <p class="hint">Create an account with <code>python manage.py createsuperuser</code></p>
+</div>
+</body>
+</html>
